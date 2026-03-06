@@ -40,18 +40,21 @@ describe('official test vector 4 (encoding)', function () {
 
 // Homebrew tests
 
-describe('method signature', function () {
-  it('should work with test()', function () {
-    assert.strict.equal(abi.methodID('test', []).toString('hex'), 'f8a8fd6d')
+describe('methodID signature tests', function () {
+  it('works for test()', function () {
+    assert.strictEqual(abi.methodID('test', []).toString('hex'), 'f8a8fd6d')
   })
-  it('should work with test(uint)', function () {
-    assert.strict.equal(abi.methodID('test', [ 'uint' ]).toString('hex'), '29e99f07')
+
+  it('works for test(uint)', function () {
+    assert.strictEqual(abi.methodID('test', ['uint']).toString('hex'), '29e99f07')
   })
-  it('should work with test(uint256)', function () {
-    assert.strict.equal(abi.methodID('test', [ 'uint256' ]).toString('hex'), '29e99f07')
+
+  it('works for test(uint256)', function () {
+    assert.strictEqual(abi.methodID('test', ['uint256']).toString('hex'), '29e99f07')
   })
-  it('should work with test(uint, uint)', function () {
-    assert.strict.equal(abi.methodID('test', [ 'uint', 'uint' ]).toString('hex'), 'eb8ac921')
+
+  it('works for test(uint,uint)', function () {
+    assert.strictEqual(abi.methodID('test', ['uint','uint']).toString('hex'), 'eb8ac921')
   })
 })
 
