@@ -199,12 +199,13 @@ it('decoding address with leading 0', function () {
 
 // Homebrew decoding tests
 
-describe('decoding uint32', function () {
-  it('should equal', function () {
-    var a = abi.rawDecode([ 'uint32' ], Buffer.from('000000000000000000000000000000000000000000000000000000000000002a', 'hex'))
-    var b = new BN(42)
-    assert.strict.equal(a.length, 1)
-    assert.strict.equal(a[0].toString(), b.toString())
+describe('uint32 decoding test', function () {
+  it('should decode value correctly', function () {
+    var res = abi.rawDecode(['uint32'], Buffer.from('000000000000000000000000000000000000000000000000000000000000002a', 'hex'))
+    var exp = new BN(42)
+
+    assert.strictEqual(res.length, 1)
+    assert.strictEqual(res[0].toString(), exp.toString())
   })
 })
 
