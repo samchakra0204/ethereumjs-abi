@@ -859,15 +859,16 @@ describe('decoding (uint[][3], uint)', function () {
 })
 
 // Homebrew tests for simpleEncode() family
-describe('encoding contract function calls with simpleEncode', function () {
-  it('should encode functions with arguments', function () {
-    var a = abi.simpleEncode('inc(uint)', '0x13').toString('hex')
-    var b = '812600df0000000000000000000000000000000000000000000000000000000000000013'
-    assert.strict.equal(a, b)
+describe('simpleEncode contract call tests', function () {
+  it('encodes function with arguments', function () {
+    var res = abi.simpleEncode('inc(uint)', '0x13').toString('hex')
+    var exp = '812600df0000000000000000000000000000000000000000000000000000000000000013'
+    assert.strictEqual(res, exp)
   })
-  it('should encode functions without arguments', function () {
-    var a = abi.simpleEncode('meaningOfLife()').toString('hex')
-    var b = '5353455a'
-    assert.strict.equal(a, b)
+
+  it('encodes function without arguments', function () {
+    var res = abi.simpleEncode('meaningOfLife()').toString('hex')
+    var exp = '5353455a'
+    assert.strictEqual(res, exp)
   })
 })
